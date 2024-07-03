@@ -1,0 +1,86 @@
+@charset "UTF-8";
+@font-face {
+	font-family: 'Ownglyph_meetme-Rg';
+	src:
+		url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/Ownglyph_meetme-Rg.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	font-family: 'Ownglyph_meetme-Rg';
+	font-size : 20px;
+}
+header{
+	background-image: linear-gradient(to right,lightblue,white,lightblue);
+	text-align: center;
+	text-shadow: 2px 2px 5px gray;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 10px;
+}
+h1{
+	color : navy;
+}
+a{
+	margin-left: 20px;
+	margin-right: 20px;
+	font-weight: normal;
+	text-decoration-line: none;
+}
+ a:hover{
+	font-weight: bold;
+}
+article{
+	width : 70%;
+	border : 2px dashed blue;
+	margin: 10px auto;
+	border-radius: 10px;
+	padding : 10px;
+}
+table{
+	border: 2px solid #4682B4;
+}
+th{
+	background-color:#4682B4;
+}
+tr:hover{
+	color : blue;
+}
+
+tr:first-child:hover {
+    color: inherit; 
+}
+.a{
+	color : #00FFFF;
+}
+.b{
+	color : #4682B4;
+}
+.c{
+	color : green;
+}
+img{
+	margin-left : auto;
+	margin-right : auto;
+	display: block;
+}
+img:hover{
+	transition: 2s ease-out ;	
+	opacity : 0.5;
+	
+	
+}
+figcaption{
+	text-align: center;
+}
+aside{
+	text-align: center;
+}
+footer{
+	
+	text-align: center;
+}
+

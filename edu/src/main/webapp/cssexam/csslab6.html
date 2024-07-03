@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+@font-face {
+	font-family: 'Ownglyph_meetme-Rg';
+	src:
+		url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/Ownglyph_meetme-Rg.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	font-family: 'Ownglyph_meetme-Rg';
+}
+
+hr{
+	height : 5px;
+	background-image: linear-gradient(to right,red,orange,yellow,green,purple);
+}
+
+h1 {
+	color: white; 
+	padding : 5px;
+	text-align: center;
+	border: 2px;
+	border-radius: 10px;
+	width: 300px;
+	height: 100px;
+	line-height: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	background-image: linear-gradient(to right, yellow,green);
+	padding: 5px;
+}
+
+img {
+	margin: 10px;
+	width: 150px;
+	height: 150px;
+	border: solid green;
+	border-radius: 20px;
+	box-shadow: 5px 5px 5px lightgreen;
+}
+img:hover{
+	transition: 2s ease-out ;	
+}
+
+figcaption{
+	text-align: center;
+}
+.gif:hover{
+	transform: rotate(10deg);
+}
+.png:hover{
+	transform: rotate(-10deg);
+}
+.jpg:hover{
+	transform: skewY(20deg);
+}
+div {
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+}
+</style>
+</head>
+<body>
+	<h1><font color = "#FF1694">과일</font>의 <font style="color :orange;  text-shadow :1px 1px 6px white " >종류</font></h1>
+	<hr>
+	<div>
+		<img class = "gif" src="/edu/images/r1.gif"> 
+		<img class = "gif" src="/edu/images/r2.gif">
+		<img class = "jpg" src="/edu/images/r3.jpg"> 
+		<img class = "gif" src="/edu/images/r4.gif"> 
+		<img class = "png" src="/edu/images/r5.png"><br>
+		<img class = "png" src="/edu/images/r6.png">
+		<img class = "png" src="/edu/images/r7.png">
+		<img class = "jpg" src="/edu/images/r8.jpg">
+		<img class = "jpg" src="/edu/images/r9.jpg">
+		<img class = "jpg" src="/edu/images/r10.jpg">
+	</div>
+</body>
+</html>
