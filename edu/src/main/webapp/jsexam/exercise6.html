@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+h1{
+color : blue;
+}
+h2{
+color : red;
+}
+ 
+</style>
+</head>
+<body>
+<script src="util.js"></script>
+<h1>자바스크립트 실습(6)</h1>
+<script>
+	function getMaxValue(arr){
+		var max = arr[0];
+		for(let i in arr){
+			max = Math.max(max,arr[i]);
+		}
+		return max;
+	}
+	function getMinValue(arr){
+		var min = arr[0];
+		for(let i in arr){
+			min = Math.min(min,arr[i]);
+		}
+		return min;
+	}
+	function getSum(arr){
+		var sum = 0;
+		for(let i in arr){
+			sum += arr[i];
+		}
+		return sum;
+	}
+	function getCountOddNum(arr){//홀수
+		var count = 0;
+		for(let i in arr){
+			if(arr[i]%2==1){
+				count++;
+			}
+		}
+		return count;
+	}
+	function getCountEvenNum(arr){//짝수
+		var count = 0;
+		for(let i in arr){
+			if(arr[i]%2==0){
+				count++;
+			}
+		}
+		return count;
+	}
+	var arr = [10,5,7,21,4,8,18];
+	write(`모든 원소의 합 : ${getSum(arr)}`,"h2");
+	document.write(`<ul><li>최대값 : ${getMaxValue(arr)}</li>`);
+	document.write(`<li>최소값 : ${getMinValue(arr)}</li>`);
+	document.write(`<li>짝수의 갯수 : ${getCountEvenNum(arr)}</li>`);
+	document.write(`<li>홀수의 갯수 : ${getCountOddNum(arr)}</li></ul>`);
+</script>
+</body>
+</html>

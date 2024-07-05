@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+    h1 {
+        color : green;
+    }
+</style>
+</head>
+<body>
+<script>
+    var num=window.prompt("숫자를 한 개 입력하세요."); // string 문자열로 리턴함
+    console.log(num);
+    document.write("<h1>"+(Number(num)+10)+"</h1>");//정수와 실수 모두됨 주어진 문자열에 숫자가 될수없는애가 오면 NAN," "이나 NULL은 0
+    document.write("<h1>"+(parseInt(num)+10)+"</h1>");//실수도 정수로 바꿈, 문자열이와도 문자열빼고 숫자로바꿈, null이랑 " "은 nan
+    document.write("<h1>"+(num+10)+"</h1>");
+    document.write("<h1>"+(num-10)+"</h1>");//+뺴고 문자열이라는 기능이없어서 알아서 숫자로 변환해서 연산함
+    document.write("<h1>"+(num*10)+"</h1>");
+    document.write("<h1>"+(num/10)+"</h1>");
+    document.write("<h1>"+(num%100)+"</h1>");
+</script>
+</body>
+</html>
