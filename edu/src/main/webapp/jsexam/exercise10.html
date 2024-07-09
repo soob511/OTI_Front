@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>exercise10</title>
+</head>
+<body>
+	<script>
+		const Obj = {
+			tag : "h1",
+			color : "blue",
+			msg : "파란색"
+		};
+		function printObject(p) {
+			if (typeof p === 'object') {
+				document
+						.write(`<${p.tag} style="color: ${p.color}">${p.msg}</${p.tag}>`);
+			} else
+				return;
+		}
+		printObject(Obj);
+		Obj.tag = "h2";
+		Obj.color = "red";
+		Obj.msg = "빨간색";
+		printObject(Obj);
+		Obj.tag = "h3";
+		Obj.color = "green";
+		Obj.msg = "초록색";
+		printObject(Obj);
+		Obj.tag = "h4";
+		Obj.color = "yellow";
+		Obj.msg = "노란색";
+		printObject(Obj);
+		Obj.tag = "h5";
+		Obj.color = "black";
+		Obj.msg = "검은색";
+		printObject(Obj);
+	</script>
+</body>
+</html>

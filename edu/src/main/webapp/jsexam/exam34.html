@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script src="util.js"></script>
+<script>
+	let options = {
+	    style: 'currency', 
+	    currency: 'krw',
+	    currencyDisplay: 'name'
+	}
+   	writeColor(new Intl.NumberFormat(navigator.language, options).format(50000), "h3", "red");
+	options.currency = 'usd';
+	writeColor(new Intl.NumberFormat(navigator.language, options).format(50000), "h3", "red");
+	
+	options = {
+		    numeric: 'always' // 'auto'
+	};
+	const obj = new Intl.RelativeTimeFormat('ko-KR', options);
+	writeColor(obj.format(1, 'day'), "h3", "blue");  
+	writeColor(obj.format(2, 'day'), "h3", "blue");  
+	writeColor(obj.format(3, 'day'), "h3", "blue");  
+	writeColor(obj.format(-1, 'day'), "h3", "blue");  
+	writeColor(obj.format(-2, 'day'), "h3", "blue");  
+	writeColor(obj.format(-3, 'day'), "h3", "blue");  
+</script>
+</body>
+</html>

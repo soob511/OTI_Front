@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+var num = Math.floor(Math.random()*3)+1;
+if(num==1){
+	if(window.confirm("다음으로 이동하시겠습니까?")){
+		location.href = "https://www.daum.net/";
+	}else{
+		location.href = "http://localhost:8088/edu/first.html";
+	}
+}else if(num==2){
+	if(window.confirm("네이버으로 이동하시겠습니까?")){
+		location.href = "https://www.naver.com/";
+	}else{
+		location.href = "http://localhost:8088/edu/first.html";
+	}
+}else{
+	if(window.confirm("구글으로 이동하시겠습니까?")){
+		location.href = "https://www.google.com/";
+	}else{
+		location.href = "http://localhost:8088/edu/first.html";
+	}
+}
+</script>
+</body>
+</html>

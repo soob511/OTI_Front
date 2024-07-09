@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>배열의 주요 메서드</h1>
+<hr>
+<script src="util.js"></script>
+<script>
+function Person(name, point, city) {
+	this.name = name;
+	this.point = point;
+	this.city = city;
+}
+Person.prototype.toString = function() { return this.name; };
+
+const persons = [
+    new Person("둘리",88,"서울"),  
+    new Person("또치",92,"서울"),
+    new Person("도우너",76,"제주"),
+    new Person("고길동",78,"서울")
+];
+write(persons, 'h3');
+hr();
+const pass = persons.filter(function (person) {
+    return person.point > 80;
+});
+writeColor(pass, 'h3', 'red');
+</script>
+</body>
+</html>

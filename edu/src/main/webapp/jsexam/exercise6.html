@@ -18,7 +18,7 @@ color : red;
 <h1>자바스크립트 실습(6)</h1>
 <script>
 	function getMaxValue(arr){
-		var max = arr[0];
+		var max = arr[0]; //Math.max(...ary)
 		for(let i in arr){
 			max = Math.max(max,arr[i]);
 		}
@@ -47,14 +47,14 @@ color : red;
 		}
 		return count;
 	}
-	function getCountEvenNum(arr){//짝수
+	function getCountEvenNum(arr){//짝수  
 		var count = 0;
 		for(let i in arr){
 			if(arr[i]%2==0){
 				count++;
 			}
 		}
-		return count;
+		return count; //arr.length - getCountOddNum(arr)
 	}
 	var arr = [10,5,7,21,4,8,18];
 	write(`모든 원소의 합 : ${getSum(arr)}`,"h2");

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>자바스크립트의 객체 생성과 사용(객체리터럴)</h1>
+<hr>
+<script src="util.js"></script>
+<script>
+	const student = {
+        이름: '홍길동',
+        국어: 92, 
+        수학: 98,
+        영어: 96, 
+        과학: 98
+	};
+	for(let key in student)
+		write(student[key], "h3");	//student.key(X), student.국어(o)
+	/*for(let value of student) //for of반복문 일반객체에서 사용할수 없음
+		write(value, "h3");*/	
+</script>
+</body>
+</html>
+
+
+
+
+

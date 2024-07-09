@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script src="util.js"></script>
+<script>
+    const today = new Date();
+    let options = { dateStyle: "long" };
+	writeColor(new Intl.DateTimeFormat("ko-KR", options).format(today), "h3", "blue");
+	writeColor(new Intl.DateTimeFormat("en-US", options).format(today), "h3", "blue");
+	writeColor(new Intl.DateTimeFormat("ja-JP", options).format(today), "h3", "blue");
+	
+	console.log(navigator.language);
+	console.log(new Intl.DateTimeFormat(navigator.language, { dateStyle: "full" }).format(today));
+	console.log(new Intl.DateTimeFormat(navigator.language, { dateStyle: "long" }).format(today));
+	console.log(new Intl.DateTimeFormat(navigator.language, { dateStyle: "medium" }).format(today));
+	console.log(new Intl.DateTimeFormat(navigator.language, { dateStyle: "short" }).format(today));
+	
+	console.log(new Intl.DateTimeFormat(navigator.language, {timeStyle: "full" }).format(today));
+	console.log(new Intl.DateTimeFormat(navigator.language, {timeStyle: "long" }).format(today));
+	console.log(new Intl.DateTimeFormat(navigator.language, {timeStyle: "medium" }).format(today));
+	console.log(new Intl.DateTimeFormat(navigator.language, {timeStyle: "short" }).format(today));
+	
+	writeColor(new Intl.DateTimeFormat(navigator.language, {dateStyle: "full", timeStyle: "full" }).format(today), "h3", "magenta");
+	
+	options = {
+		    year: "2-digit",
+		    month: "short",
+		    weekday: "short",
+		    day: "numeric",
+		    hour: "numeric",
+		    minute: "numeric",
+		    second: "numeric",
+		    hour12: true
+	}
+
+	writeColor(new Intl.DateTimeFormat('en-US', options).format(today), "h3", "green");
+	writeColor(new Intl.DateTimeFormat('ko-KR', options).format(today), "h3", "green");
+</script>
+</body>
+</html>

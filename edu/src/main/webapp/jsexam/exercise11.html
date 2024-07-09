@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>exercise11</title>
+</head>
+<body>
+	<script>
+		function DayInfo(name, year, month, day) {
+			this.name = name;
+			this.year = year;
+			this.month = month;
+			this.day = day;
+
+			DayInfo.prototype.getTotalDates = function() {
+				var currentDate = new Date();
+				var birthDate = new Date(this.year, this.month - 1, this.day);
+				var time = currentDate - birthDate;
+				var num = Math.floor(time / (1000 * 60 * 60 * 24));
+				return `${this.name}님은 태어난지 ${num}일 되었어요.`;
+			};
+
+			DayInfo.prototype.getKorDay = function() {
+				var week = new Array('일요일', '월요일', '화요일', '수요일', '목요일', '금요일',
+						'토요일');
+				var d = new Date(this.year, this.month - 1, this.day).getDay();
+				var dayofweek = week[d];
+				return `${this.name}님은 ${dayofweek}에 태어났어요.`;
+			};
+		}
+		var d1 = new DayInfo("홍길동", 1998, 5, 11);
+		var d2 = new DayInfo("고길동", 2002, 8, 4);
+		var d3 = new DayInfo("이길동", 1950, 6, 7);
+		document.write(`<h3 style="color: blue">${d1.getKorDay()}</h3>`);
+		document.write(`<h3 style="color: blue">${d1.getTotalDates()}</h3>`);
+		document.write(`<h3 style="color: green">${d2.getKorDay()}</h3>`);
+		document.write(`<h3 style="color: green">${d2.getTotalDates()}</h3>`);
+		document.write(`<h3 style="color: gray">${d3.getKorDay()}</h3>`);
+		document.write(`<h3 style="color: gray">${d3.getTotalDates()}</h3>`);
+	</script>
+</body>
+</html>

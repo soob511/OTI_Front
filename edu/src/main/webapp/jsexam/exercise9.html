@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>exercise9</title>
+</head>
+<body>
+<script>
+	function printH1(content){
+		document.write("<h1>"+content+"</h1>");
+	}
+	function printH4(content){
+		document.write("<h4>"+content+"</h4>");
+	}
+	function apply(arr,f){
+		if(!Array.isArray(arr)||f==undefined){
+			console.log("아규먼트 오류");
+			return false;
+		}else{
+			for(let i=0;i<arr.length;i++){
+				f(arr);
+			}
+			return true;
+		}
+	} 
+	var arr = [];
+	while(true){
+		var data = window.prompt("데이터를 입력하세요");
+		if(data==null){
+			break;
+		}
+		arr.push(data);
+	}
+	var num = Math.floor(Math.random()*10)+1;	
+	console.log(num);
+	var is = true;
+	if(num ==1||num==4||num==6){
+		is = apply(arr,printH1);
+	}else if(num==3||num==5||num==7){
+		is = apply(arr,printH4);
+	}else if(num==8||num==9){
+		is = apply("ㅋㅋㅋ",printH1);
+	}else{
+		is = apply(arr);
+	}
+	if(is){
+		window.alert("처리 성공");
+	}else{
+		window.alert("처리 실패")
+	}
+</script>
+</body>
+</html>
