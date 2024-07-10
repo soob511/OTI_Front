@@ -39,11 +39,10 @@
 		var dom4 = document.getElementsByTagName("body")[0];	
 		dom1.addEventListener("click", displayAlert);	
 		dom2.addEventListener("click", displayAlert);	
-		dom3.addEventListener("click", displayAlert);
+		dom3.addEventListener("click", displayAlert,true); // 캡쳐링
 		dom4.addEventListener("click", displayAlert);
 	}
 	function displayAlert(e) {
-		console.log(e);
 		window.alert(`${e.target.nodeName} 태그 에서 ${e.type} 이벤트 발생!!---${e.currentTarget.nodeName}태그가 이벤트처리 위임받음`);
 	}
 	window.addEventListener("load", clickHandler);

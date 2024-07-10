@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>exercise13_1</title>
+</head>
+<body>
+	<h1>이벤트 모델-표준</h1>
+	<hr>
+	<button>빨강색</button>
+	<button>파랑색</button>
+	<button>노랑색</button>
+	<hr>
+	<h3></h3>
+	<script>
+        var doms = document.querySelectorAll("button");
+        var red = doms[0];
+        var blue = doms[1];
+        var yellow = doms[2];
+       red.addEventListener("click",function(){
+		document.getElementsByTagName("h3")[0].style.color = "red";
+	   })
+	   blue.addEventListener("click",function(){
+		document.getElementsByTagName("h3")[0].style.color = "blue";
+	   })
+	   yellow.addEventListener("click",function(){
+		document.getElementsByTagName("h3")[0].style.color = "yellow";
+	   })
+	const today = new Date();
+	const month = today.getMonth() + 1; 
+	const date = today.getDate();
+	document.getElementsByTagName("h3")[0].textContent = `오늘은 ${month}월 ${date}일입니다.`;
+	
+	</script>
+</body>
+</html>

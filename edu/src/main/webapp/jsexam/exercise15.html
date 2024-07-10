@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+    body {
+        text-align: center;
+    }
+   
+</style>
+</head>
+<body>
+<h1 class="gugudan" onclick="openWikiPage()">구구단</h1>
+<button onclick="gugudan(1)">1단</button>
+<button onclick="gugudan(2)">2단</button>
+<button onclick="gugudan(3)">3단</button>
+<button onclick="gugudan(4)">4단</button>
+<button onclick="gugudan(5)">5단</button>
+<button onclick="gugudan(6)">6단</button>
+<button onclick="gugudan(7)">7단</button>
+<button onclick="gugudan(8)">8단</button>
+<button onclick="gugudan(9)">9단</button>
+
+<div class="gugudan" id="gugudanOutput">
+    
+</div>
+
+<script>
+function gugudan(num){
+    var gugudanOutput = document.getElementById("gugudanOutput");
+    gugudanOutput.innerHTML = ""; 
+    
+    for(let i=1; i<=9; i++){
+        var result = document.createElement("p");
+        result.textContent = `${num} * ${i} = ${num * i}`;
+        gugudanOutput.appendChild(result);
+    }
+}
+
+function openWikiPage() {
+    window.open("https://ko.wikipedia.org/wiki/구구단", "_blank");
+}
+</script>
+</body>
+</html>

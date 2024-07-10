@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        h1{
+            color : white;
+            text-shadow: 2px 2px 10px purple;
+        }
+        button{
+            color:white;
+            background-color: purple;
+        }
+        .button{
+            border: solid;
+            border-radius: 10px;
+            box-shadow: 3px 3px 5px purple;
+            padding: auto;
+            margin: auto;
+            width: 200px;
+            height: 100px;
+            line-height: 100px;
+        }
+        .img{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+       
+    </style>
+</head>
+<body>
+    <h1>이벤트 처리 실습</h1>
+    <hr>
+    <div class="button">
+    <button>맑음</button>
+    <button>흐림</button>
+    <button>비</button>
+    </div>
+    <hr>
+    <div class="img"><img id="weatherImage" src=""style="display: none; width:200px;height:200px;"></div>
+    <script>
+        var doms = document.querySelectorAll("button");
+        var sun = doms[0];
+        var cloud = doms[1];
+        var rain = doms[2];
+        var weatherImage = document.getElementById("weatherImage");
+
+        sun.addEventListener("click", function() {
+            weatherImage.src = "../images/sun.png";
+            weatherImage.style.display = "block";
+        });
+
+        cloud.addEventListener("click", function() {
+            weatherImage.src = "../images/cloud.png";
+            weatherImage.style.display = "block";
+        });
+
+        rain.addEventListener("click", function() {
+            weatherImage.src = "../images/rain.png";
+            weatherImage.style.display = "block";
+        });
+    </script>
+</body>
+
+</html>

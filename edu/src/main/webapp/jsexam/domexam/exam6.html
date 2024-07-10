@@ -22,7 +22,7 @@
 		alert("표준이벤트모델 버튼 클릭");
 		btn2.removeEventListener("mouseover", test3);
 	}
-	var btn1 = document.querySelector("#b1");
+	var btn1 = document.querySelector("#b1");//쿼리선택자
 	var btn2 = document.getElementById("b2");
 	btn1.onmouseover = test2;  // 고전
 	btn2.addEventListener("mouseover", test3);

@@ -5,7 +5,7 @@
 <title>exercise13_1</title>
 </head>
 <body>
-	<h1 id="h1">이벤트 모델-인라인</h1>
+	<h1>이벤트 모델-인라인</h1>
 	<hr>
 	<button onclick="update('red')">빨강색</button>
 	<button onclick="update('blue')">파랑색</button>
@@ -15,15 +15,14 @@
 	<h3 id="h3"></h3>
 	<script>
 	function update(color){
-	    document.getElementById("h1").style.color = color;
+	    document.getElementById("h3").style.color = color;
 	}
-	function updateDate() {
-		const today = new Date();
-		const month = today.getMonth() + 1; 
-		const date = today.getDate();
-		document.getElementById("h3").textContent = `오늘은 ${month}월 ${date}일입니다.`;
-	}
-	window.onload = updateDate;
+	
+	const today = new Date();
+	const month = today.getMonth() + 1; 
+	const date = today.getDate();
+	document.getElementById("h3").textContent = `오늘은 ${month}월 ${date}일입니다.`;
+	
 	</script>
 </body>
 </html>
