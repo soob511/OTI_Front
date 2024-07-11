@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<title>로컬스토리지</title>
+</head>
+<body>
+  <h1>로컬스토리지에서 데이터 읽기</h1> 
+	<hr>
+	<h2>수행 결과는 자바스크립트 콘솔창에서 확인하세요~~</h2> 
+  <script>    
+		console.log("로컬스토리지에 저장된 friend1 이라는 키의 값  : " + localStorage.getItem("friend1"));
+		
+		let key, value;
+		for(let i=0; i < localStorage.length; i++) {
+			key = localStorage.key(i);
+			value = localStorage.getItem(key);
+			console.log(`${key} ----- ${value}`);
+		}
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+

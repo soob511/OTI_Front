@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<title>간단 메모지</title>
+
+<script>
+  let info, msg;
+	function saveText() {
+		info = document.getElementById("info");
+		info.style.display = "block"; // inline, inline-block
+		window.localStorage.setItem("memo", msg.value); // 보관
+	}
+
+	function pageload() {
+		msg = document.getElementById("txtBox");
+		msg.value = window.localStorage.getItem("memo"); // 읽기
+	}
+
+	function clr() {
+		msg.value = "";
+		localStorage.clear();
+		info.style.display = "none";
+	}
+</script>
+</head>
+<body onload="pageload()">
+	<h2>간단한 메세지</h2>
+	<textarea id="txtBox"  onKeyUp="saveText();" cols="50" rows="5"></textarea>
+	<br />
+	<input type="button" value="메모지 비우기" onClick="clr();" />
+	<p id="info" style="display: none;">메모내용이 자동 저장되었습니다.</P>
+</body>
+</html>
+
+
+
+
+
+
+
+

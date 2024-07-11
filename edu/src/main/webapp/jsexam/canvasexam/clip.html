@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script type="application/javascript">  
+
+function draw_m() {  
+  var canvas = document.getElementById('m');  
+  if(canvas.getContext){  
+
+  	var ctx = canvas.getContext('2d');
+	
+	var img = new Image();
+	img.onload=function(){
+		ctx.drawImage(img,10,10)	
+	}
+    img.src='images/flower.jpg'
+
+    ctx.beginPath();
+	ctx.arc(200,110,100,0,Math.PI*2,true);
+	ctx.clip();
+  }
+  else {
+    alert("사파리 브라우저나 파이어폭스 1.5 이상의 브라우저에서만 사이트 내용을 제대로 볼 수 있습니다.")
+  }
+
+}
+  
+</script>  
+</head>  
+
+<body onload="draw_m()">  
+<canvas id="m" width="400" height="500"></canvas>
+</body>  
+</html>  

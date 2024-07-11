@@ -1,0 +1,34 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script type="application/javascript">  
+function draw_m() {  
+  var m_canvas = document.getElementById('m');  
+
+  if(m_canvas.getContext) { 
+    var m_ctx = m_canvas.getContext('2d'); 
+	
+    m_ctx.fillStyle = "rgba(255,51,0,1.0)";  //a(투명도)
+    m_ctx.fillRect (10, 10, 150, 30);  
+    m_ctx.fillStyle = "rgba(255,51,0,0.8)";  
+    m_ctx.fillRect (10, 40, 150, 30);   
+    m_ctx.fillStyle = "rgba(255,51,0,0.6)";  
+    m_ctx.fillRect (10, 70, 150, 30); 
+    m_ctx.fillStyle = "rgba(255,51,0,0.4)";  
+    m_ctx.fillRect (10, 100, 150, 30); 	
+    m_ctx.fillStyle = "rgba(255,51,0,0.2)";  
+    m_ctx.fillRect (10, 130, 150, 30); 	
+  } 
+  else {
+    alert("사파리 브라우저나 파이어폭스 1.5 이상의 브라우저에서만 사이트 내용을 제대로 볼 수 있습니다.")
+  }
+
+}  
+</script>  
+</head>  
+
+<body onload="draw_m()">  
+<canvas id="m" width="500" height="400"></canvas>  
+</body>  
+</html>  

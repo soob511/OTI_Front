@@ -13,13 +13,13 @@
 	<input type="submit" value=" 확인 후 전송">
 </form>
 <script>
-	document.querySelector("form").addEventListener("submit", function(event) {
+	document.querySelector("form").addEventListener("submit", function(e) {
 		const name =  document.querySelector("[name='name']").value;
 		const age =  document.querySelector("[name='age']").value;
 		const content = `입력한 내용입니다. 이름 : ${name}, 나이 : ${age} \n 전송할까요?`;
 		
 		if (!confirm(content)) {
-			event.preventDefault(); // 요청을 취소함
+			e.preventDefault(); // 요청을 취소함
 		}
 	});
 </script>

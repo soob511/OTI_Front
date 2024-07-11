@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<title>세션스토리지</title>
+</head>
+<body>
+  <h1>세션스토리지에서 데이터 읽기</h1> 
+	<hr>
+	<h2>수행 결과는 자바스크립트 콘솔창에서 확인하세요~~</h2> 
+  <script>    
+    console.log(`세션스토리지에 존재하는 키 갯 수 : ${sessionStorage.length}개`);
+		let key, value;
+		for(let i=0; i < sessionStorage.length; i++) {
+			key = sessionStorage.key(i);
+			value = sessionStorage.getItem(key);
+			console.log(`${key} ----- ${value}`);
+		}
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+

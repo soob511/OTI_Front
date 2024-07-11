@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+    *{
+        text-align: center;
+    }
+    h1{
+        color: greenyellow;
+    }
+    
+</style>
+<script>
+
+    function draw(){
+         /** @type {CanvasRenderingContext2D} */ 
+         let dom = document.getElementById("canvas");
+         canvas = dom.getContext("2d");
+
+        //얼굴
+        canvas.beginPath();
+        canvas.fillStyle = "#964b00";
+	    canvas.arc(100,100,50,0,Math.PI*2, false);
+        canvas.fill();
+	    canvas.stroke();
+	    canvas.save();
+
+        //코
+
+        canvas.beginPath();
+        canvas.fillStyle = "white";
+	    canvas.arc(100,115,20,0,Math.PI*2, false);
+        canvas.fill();
+	    canvas.stroke();
+	    canvas.save();
+
+
+        canvas.beginPath();
+        canvas.fillStyle = "black";
+	    canvas.arc(100,110,5,0,Math.PI*2, false);
+        canvas.fill();
+	    canvas.stroke();
+	    canvas.save();
+
+        //왼쪽눈
+        canvas.beginPath();
+        canvas.fillStyle = "white";
+	    canvas.arc(80,87,13,0,Math.PI*2, false);
+        canvas.fill();
+	    canvas.stroke();
+	    canvas.save();
+
+        canvas.beginPath();
+        canvas.fillStyle = "black";
+	    canvas.arc(80,87,7,0,Math.PI*2, false);
+        canvas.fill();
+	    canvas.stroke();
+	    canvas.save();
+
+        //오른쪽눈
+        canvas.beginPath();
+        canvas.fillStyle = "white";
+	    canvas.arc(120,87,13,0,Math.PI*2, false);
+        canvas.fill();
+	    canvas.stroke();
+	    canvas.save();
+
+        canvas.beginPath();
+        canvas.fillStyle = "black";
+	    canvas.arc(120,87,7,0,Math.PI*2, false);
+        canvas.fill();
+	    canvas.stroke();
+	    canvas.save();
+
+        //귀
+	    canvas.beginPath();
+        canvas.fillStyle = "#964b00";
+	    canvas.arc(60,60,18,(Math.PI/180)*100,(Math.PI/180) *-10, false);
+        canvas.fill();
+	    canvas.stroke();
+        canvas.save();
+
+        canvas.beginPath();
+        canvas.fillStyle = "#964b00";
+	    canvas.arc(130, 60, 18, (Math.PI/180)*200 ,(Math.PI/180) *45,false);
+        canvas.fill();
+	    canvas.stroke();
+        canvas.save();
+
+        canvas.beginPath();
+        canvas.fillStyle = "#FF4646";
+	    canvas.arc(132,112,9,0,Math.PI*2, false);
+        canvas.fill();
+	    canvas.stroke();
+	    canvas.save();
+
+        canvas.beginPath();
+        canvas.fillStyle = "#FF4646";
+	    canvas.arc(70,112,9,0,Math.PI*2, false);
+        canvas.fill();
+	    canvas.stroke();
+	    canvas.save();
+    }
+    window.addEventListener("load",draw,false);
+
+    function store(){
+        var dom = document.getElementById("canvas");
+        var data = dom.toDataURL();
+        localStorage.setItem("draw",data);
+    }
+    
+    function read(){
+        let img = new Image();
+        img.src = localStorage.draw;
+        img.onload = function(){
+           canvas.drawImage(img,0,0);
+        }
+        
+    }
+
+    function del(){
+        canvas.clearRect(0,0,500,300);
+    }
+</script>
+</head>
+<body>
+<h1>전수빈의 HTML5 API실습</h1>
+<button onclick="store()">저장하기</button>
+<button onclick="read()">읽어오기</button>
+<button onclick="del()">삭제하기</button>
+<section>
+    <canvas id = "canvas" width="200" height="200">
+    </canvas>
+</section>
+
+
+
+
+   
+
+</body>
+</html>

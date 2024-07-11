@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Canvas API</title>
+  <script>
+    function initiate(){
+	  var elem=document.getElementById('canvas');
+	  canvas=elem.getContext('2d');
+
+	  canvas.beginPath();
+	  canvas.moveTo(50,50);
+	  canvas.quadraticCurveTo(100,125, 50,200);//조절점 하나
+	  canvas.moveTo(250,50);
+	  canvas.bezierCurveTo(200,125, 300,125, 250,200);//조절점 두개
+	  canvas.stroke();
+	}
+	window.addEventListener("load", initiate, false);
+  </script>
+</head>
+<body>
+  <section id="canvasbox">
+    <canvas id="canvas" width="500" height="300">
+      Your browser doesn't support the canvas element
+    </canvas>
+  </section>
+</body>
+</html>
+

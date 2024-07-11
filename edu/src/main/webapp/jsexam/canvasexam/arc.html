@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Canvas API</title>
+  <script>
+    function initiate(){
+	  var elem=document.getElementById('canvas');
+	  canvas=elem.getContext('2d');
+
+	  canvas.beginPath();
+	  canvas.arc(100,100,50,0,Math.PI*2, false);//false 시계방향 , true 반시계방향
+	  canvas.stroke();
+	  canvas.save();
+	  
+	  
+	  canvas.beginPath();
+	  canvas.fillStyle = 'red';
+	  canvas.arc(150,200,50,0,Math.PI*2, false);
+	  canvas.fill();
+	  canvas.restore();
+	  
+	  canvas.beginPath();
+	  canvas.arc(300,200,50,0,Math.PI, false);
+	  canvas.fill();
+	  
+	  
+	  canvas.beginPath();
+	  canvas.strokeStyle = 'green';
+	  canvas.lineWidth = 4;
+	  canvas.arc(450,200,50,0,Math.PI/2, true);
+	  canvas.stroke();
+	}
+	window.addEventListener("load", initiate, false);
+  </script>
+</head>
+<body>
+  <section id="canvasbox">
+    <canvas id="canvas" width="600" height="300" style="border:1px solid red;">
+      Your browser doesn't support the canvas element
+    </canvas>
+  </section>
+</body>
+</html>
+

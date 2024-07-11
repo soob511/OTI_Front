@@ -11,7 +11,7 @@
 </style>
 </head>
 <body>
-<h1 class="gugudan" onclick="openWikiPage()">구구단</h1>
+<h1 onclick=go()>구구단</h1>
 <button onclick="gugudan(1)">1단</button>
 <button onclick="gugudan(2)">2단</button>
 <button onclick="gugudan(3)">3단</button>
@@ -22,24 +22,19 @@
 <button onclick="gugudan(8)">8단</button>
 <button onclick="gugudan(9)">9단</button>
 
-<div class="gugudan" id="gugudanOutput">
-    
-</div>
+<div>   </div>
 
 <script>
 function gugudan(num){
-    var gugudanOutput = document.getElementById("gugudanOutput");
-    gugudanOutput.innerHTML = ""; 
-    
+    var gugu = document.getElementsByTagName("div")[0];
+    gugu.innerHTML="";
     for(let i=1; i<=9; i++){
-        var result = document.createElement("p");
-        result.textContent = `${num} * ${i} = ${num * i}`;
-        gugudanOutput.appendChild(result);
+        gugu.innerHTML += `${num}*${i}=${num*i}<br>`;
     }
 }
 
-function openWikiPage() {
-    window.open("https://ko.wikipedia.org/wiki/구구단", "_blank");
+function go() {
+    location.href="https://ko.wikipedia.org/wiki/구구단";
 }
 </script>
 </body>

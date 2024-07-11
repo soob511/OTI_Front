@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<!-- Canvas 이미지 그리기 예제 -->
+<html>
+<head>
+<title> Canvas Image Drawings </title>
+</head>
+<body>
+
+<canvas style="border: 1px solid black" id="myCanvas" width="1150" height="500"></canvas>
+
+<script type="text/javascript">
+  var canvas = document.getElementById("myCanvas");
+  var context2d = canvas.getContext("2d");
+
+  var imgObj = new Image();
+  imgObj.src = "clownfish.jpg";
+
+  imgObj.onload = function() {
+
+    // (50, 50) 지점에 원래 크기 그대로 이미지 그리기
+    context2d.drawImage(imgObj, 50, 50);
+
+    // 크기조정하기: (600, 50) 지점에 250 x 100 크기로 이미지 그리기
+    context2d.drawImage(imgObj, 600, 50, 250, 100);
+
+    // 크기조정하기: (900, 50) 지점에 200 x 200 크기로 이미지 그리기
+    context2d.drawImage(imgObj, 900, 50, 200, 200);
+
+    // 이미지 자르기 후 크기조정:
+    // 1) 원본 이미지 (150, 100) 지점에서 150 x 50 크기의 이미지를 자른다.
+    // 2) Canvas의 (600, 300) 지점에 100 x 75 크리로 그리기
+    context2d.drawImage(imgObj, 150, 100, 150, 150, 600, 300, 100, 100);
+
+    // 이미지 자르기 후 크기조정:
+    // 1) 원본 이미지 (250, 100) 지점에서 250 x 150 크기의 이미지를 자른다.
+    // 2) Canvas의 (750, 300) 지점에 125 x 75 크리로 그리기
+    context2d.drawImage(imgObj, 250, 100, 250, 150, 750, 300, 125, 75);
+  }
+</script>
+
+
+</body>
+</html>

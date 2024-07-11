@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script type="application/javascript">  
+var compositeTypes = [
+  'source-over','source-in','source-out','source-atop', 'destination-over','destination-in','destination-out','destination-atop',  'lighter','darker','copy','xor'];
+function draw(){
+  for (i=0;i<compositeTypes.length;i++){
+    var label = document.createTextNode(compositeTypes[i]);
+    document.getElementById('lab'+i).appendChild(label);
+    var ctx = document.getElementById('m'+i).getContext('2d');
+
+    // 먼저 그린 원
+    ctx.fillStyle = "#ff6633";
+    ctx.beginPath();
+    ctx.arc(50,50,45,0,Math.PI*2,true);
+    ctx.fill();
+    
+    ctx.globalCompositeOperation = compositeTypes[i];
+    
+    // 나중에 그린 사각형
+    ctx.fillStyle = "#009900";
+    ctx.fillRect(45,45,60,60);
+  }
+}  
+</script>  
+<style>
+body { margin: 20px; font-family:돋움; background: #fff;}
+canvas { border: 2px solid #000; margin-bottom: 5px; }
+td { padding: 7px; }
+</style>
+</head>  
+
+<body onload="draw();"> 
+     <table> 
+        <tr> 
+          <td><canvas id="m0" width="125" height="125"></canvas><br/><label id="lab0"></label></td> 
+          <td><canvas id="m1" width="125" height="125"></canvas><br/><label id="lab1"></label></td> 
+          <td><canvas id="m2" width="125" height="125"></canvas><br/><label id="lab2"></label></td> 
+          <td><canvas id="m3" width="125" height="125"></canvas><br/><label id="lab3"></label></td> 
+        </tr> 
+        <tr> 
+          <td><canvas id="m4" width="125" height="125"></canvas><br/><label id="lab4"></label></td> 
+          <td><canvas id="m5" width="125" height="125"></canvas><br/><label id="lab5"></label></td> 
+          <td><canvas id="m6" width="125" height="125"></canvas><br/><label id="lab6"></label></td> 
+          <td><canvas id="m7" width="125" height="125"></canvas><br/><label id="lab7"></label></td> 
+        </tr> 
+        <tr> 
+          <td><canvas id="m8" width="125" height="125"></canvas><br/><label id="lab8"></label></td> 
+          <td><canvas id="m9" width="125" height="125"></canvas><br/><label id="lab9"></label></td> 
+          <td><canvas id="m10" width="125" height="125"></canvas><br/><label id="lab10"></label></td> 
+          <td><canvas id="m11" width="125" height="125"></canvas><br/><label id="lab11"></label></td> 
+        </tr> 
+      </table>  
+</body>  
+</html>  

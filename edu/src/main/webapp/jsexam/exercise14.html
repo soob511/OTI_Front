@@ -43,28 +43,45 @@
     <button>비</button>
     </div>
     <hr>
-    <div class="img"><img id="weatherImage" src=""style="display: none; width:200px;height:200px;"></div>
+    <div class="img"><img id="weather" src=""style="display: none; width:200px;height:200px;"></div>
     <script>
-        var doms = document.querySelectorAll("button");
-        var sun = doms[0];
-        var cloud = doms[1];
-        var rain = doms[2];
-        var weatherImage = document.getElementById("weatherImage");
+        var dom = document.getElementsByTagName("button");
+        var weatherImage = document.getElementById("weather");
+        var images = {
+            "맑음": "../images/sun.png",
+            "흐림": "../images/cloud.png",
+            "비": "../images/rain.png"
+        };
 
-        sun.addEventListener("click", function() {
-            weatherImage.src = "../images/sun.png";
-            weatherImage.style.display = "block";
-        });
+        for (let i = 0; i < dom.length; i++) {
+            dom[i].addEventListener("click", change);
+        }
 
-        cloud.addEventListener("click", function() {
-            weatherImage.src = "../images/cloud.png";
-            weatherImage.style.display = "block";
-        });
+        function change(e) {
+            var buttonText = e.target.innerText;
+            weather.src = images[buttonText];
+            weather.style.display = "block";
+        }
+        // var doms = document.querySelectorAll("button");
+        // var sun = doms[0];
+        // var cloud = doms[1];
+        // var rain = doms[2];
+        // var weatherImage = document.getElementById("weatherImage");
 
-        rain.addEventListener("click", function() {
-            weatherImage.src = "../images/rain.png";
-            weatherImage.style.display = "block";
-        });
+        // sun.addEventListener("click", function() {
+        //     weatherImage.src = "../images/sun.png";
+        //     weatherImage.style.display = "block";
+        // });
+
+        // cloud.addEventListener("click", function() {
+        //     weatherImage.src = "../images/cloud.png";
+        //     weatherImage.style.display = "block";
+        // });
+
+        // rain.addEventListener("click", function() {
+        //     weatherImage.src = "../images/rain.png";
+        //     weatherImage.style.display = "block";
+        // });
     </script>
 </body>
 
