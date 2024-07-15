@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Drag and Drop</title>
+  <link rel="stylesheet" href="dragdrop.css">
+  <script>
+    var canvas, drop;
+    function initiate(){
+			var images=document.querySelectorAll('#picturesbox > img');
+			for(var i=0; i<images.length; i++){
+			images[i].addEventListener('dragstart', dragged, false);
+			images[i].addEventListener('dragend', ending, false);
+		}
+
+		drop=document.getElementById('canvas');
+		canvas=drop.getContext('2d');
+
+		drop.addEventListener('dragover', function(e){ e.preventDefault(); }, false);
+		drop.addEventListener('drop', dropped, false);
+	}
+	function ending(e){
+		elem=e.target;
+	  //elem.style.visibility='hidden';
+	}
+	function dragged(e){
+		elem=e.target;
+		e.dataTransfer.setData('Text', elem.getAttribute('id'));
+		e.dataTransfer.setDragImage(e.target, 0, 0);
+	}
+	function dropped(e){
+		e.preventDefault();
+		var id=e.dataTransfer.getData('Text');
+		var elem=document.getElementById(id);
+
+		var posx=e.pageX-drop.offsetLeft;
+		var posy=e.pageY-drop.offsetTop;
+
+		canvas.drawImage(elem,posx,posy);
+	}
+	window.addEventListener('load', initiate, false);
+  </script>
+</head>
+<body>
+  <section id="dropbox">
+    <canvas id="canvas" width="500" height="300"></canvas>
+  </section>
+  <section id="picturesbox">
+    <img id="image1" src="monster1.gif">
+    <img id="image2" src="monster2.gif">
+    <img id="image3" src="monster3.gif">
+    <img id="image4" src="monster4.gif">
+  </section>
+</body>
+</html>

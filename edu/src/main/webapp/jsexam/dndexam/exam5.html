@@ -1,0 +1,83 @@
+<!-- 파일명 : drag_drop/simple_dragndrop2.html -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>drag &amp; drop 테스트</title>
+<style type="text/css">
+.drag{
+    float: left;
+}
+.drag li{
+    width: 50px;
+    border: 1px dotted blue;
+}
+.drop{
+    float: left;
+    margin-left: 50px;
+    width: 200px;
+    height: 200px;
+    border: 1px solid gray;
+}
+.drop li{
+	list-style: none;
+}
+</style>
+<script>
+window.onload = function(){	
+    setDraggable();
+    setDroppable();   
+}
+
+function setDraggable(){
+    var purchases = document.querySelector(".drag");
+    purchases.ondragstart = function(event){
+        var id = event.target.id;
+        console.log("드래그 시작 : " + id);
+        if(event.target.tagName.toLowerCase() == "li") {
+	        event.dataTransfer.setData("listItemId", id);
+	    }
+        
+    };
+    purchases.ondrag = function(event){
+        console.log("드래그 중....");
+    };    
+}
+
+function setDroppable(){
+	var order = document.querySelector(".drop");
+	var cart = document.querySelector(".cart");
+	
+	order.ondragover = function(event) {
+		event.preventDefault();
+	}
+    order.ondrop = function(event){
+        console.log("드롭!!!");
+        var data = event.dataTransfer.getData("listItemId");
+        console.log(data);
+        cart.appendChild(document.getElementById(data).cloneNode(true));        
+    };  
+}
+
+</script>
+</head>
+<body>
+<div>
+    <h1>쇼핑 목록</h1>
+    <p><a href="#">마트에서 사야할 목록</a></p>
+    <div class="drag">
+	    <ul>
+	        <li id="item1" >두부</li>
+	        <li id="item2" draggable="true">계란</li>
+	        <li id="item3" draggable="true">라면</li>
+	    </ul>
+    </div>
+    
+    <div class="drop">
+        <ul class="cart">
+            <li>- 장바구니
+        </ul>
+    </div>
+</div>
+</body>
+</html>

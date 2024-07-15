@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Drag and Drop</title>
+  <link rel="stylesheet" href="dragdrop.css">
+  <script>
+    var source, drop;
+    function initiate(){
+		source=document.getElementById('image');
+		source.addEventListener('dragstart', dragged, false);//1
+		source.addEventListener('dragend', ending, false);
+
+		drop=document.getElementById('dropbox');
+		drop.addEventListener('dragenter', entering, false)//2
+		drop.addEventListener('dragleave', leaving, false);
+		drop.addEventListener('dragover', function(e){ e.preventDefault(); }, false);
+		drop.addEventListener('drop', dropped, false);
+	}
+	function entering(e){
+		drop.style.background='rgba(0,150,0,.2)';
+	}
+	function leaving(e){
+		drop.style.background='#FFFFFF';
+	}
+	function ending(e){
+	  elem=e.target;  // this
+		elem.style.visibility='hidden';//none 과의 차이 dom을 남겨두느냐 안남겨두느냐
+	}
+	function dragged(e){
+		var code='<img src="'+source.getAttribute('src')+'">';
+		e.dataTransfer.setData('Text', code);
+	}
+	function dropped(e){
+		e.preventDefault();//기본 이벤트 핸들러 금지
+		drop.style.background='#FFFFFF';
+		drop.innerHTML+=e.dataTransfer.getData('Text');
+	}
+	window.addEventListener('load', initiate, false);
+  </script>
+</head>
+<body>
+  <section id="dropbox">
+    Drag and drop the image here
+  </section>
+  <section id="picturesbox">
+    <img id="image" src="monster1.gif">
+  </section>
+</body>
+</html>

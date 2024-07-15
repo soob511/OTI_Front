@@ -13,7 +13,7 @@
 		if (!guestArray) {
 			guestArray = []; // 빈 배열
 			// 배열을 문자열로
-			localStorage.setItem("guestArray", JSON.stringify(guestArray));//객체를 문자열로 변환
+			localStorage.setItem("guestArray", JSON.stringify(guestArray));//객체를 문자열로 변환 //바이너리형식 안됨
 		} else {
 			guestArray = JSON.parse(guestArray); // 문자열을 배열로
 		}

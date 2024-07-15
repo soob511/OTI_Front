@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>drag&drop</title>
+<style>
+  h1 {
+    text-align: center;
+  }
+  div {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  img {
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px gray;
+    margin: 5px;
+  }
+  #dropbox {
+    width: 500px;
+    height: 300px;
+    border: 2px dashed red;
+    margin: 10px auto;
+    overflow-y: auto;
+  }
+</style>
+<script>
+  var drop;
+  var cart = JSON.parse(localStorage.getItem('cart')) || [0,0,0,0,0,0,0,0,0,0];
+
+  function initiate() {
+    var images = document.querySelectorAll("#picturesbox > img");
+    for (let i of images) {
+      i.addEventListener("dragstart", dragged, false);
+      i.addEventListener("dragend", ending, false);
+    }
+    drop = document.getElementById("dropbox");
+    drop.addEventListener("dragover", (e) => e.preventDefault());
+    drop.addEventListener("drop", dropped);
+
+    updateDropBox();
+  }
+
+  function dragged(e) {
+    var elem = e.target;
+    e.dataTransfer.setData("imgId", elem.getAttribute("id"));
+  }
+
+  function dropped(e) {
+    e.preventDefault();
+    var id = e.dataTransfer.getData("imgId");
+    var elem = document.getElementById(id);
+    cart[id - 1] += 1;
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateDropBox();
+  }
+
+  function updateDropBox() {
+    drop.innerHTML = "";
+    for (let i in cart) {
+      if (cart[i] > 0) {
+        drop.innerHTML += `<li>${Number(i) + 1}번 상품 ${cart[i]}개</li>`;
+      }
+    }
+  }
+
+  function ending(e) {
+    console.log("Drag End");
+  }
+  function del(){
+	localStorage.clear();
+	cart=[0,0,0,0,0,0,0,0,0,0];
+	drop.innerHTML="";
+  }
+
+  window.addEventListener("load", initiate, false);
+</script>
+</head>
+<body>
+  <h1>원하는 상품을 드래그하여 장바구니에 넣으세요~~</h1>
+  <hr />
+  <div>
+	<section id="picturesbox">
+        <img id ="1" src="../images/1.jpg" />
+        <img id ="2" src="../images/2.jpg" />
+        <img id ="3" src="../images/3.jpg" />
+        <img id ="4" src="../images/4.jpg" />
+        <img id ="5" src="../images/5.jpg" /><br />
+        <img id ="6" src="../images/6.jpg" />
+        <img id ="7" src="../images/7.jpg" />
+        <img id ="8" src="../images/8.jpg" />
+        <img id ="9" src="../images/9.jpg" />
+        <img id ="10" src="../images/10.jpg" />
+      </section>
+  </div>
+  <hr />
+  <section id="dropbox"></section>
+  <button onclick= del()>삭제</button>
+</body>
+</html>
