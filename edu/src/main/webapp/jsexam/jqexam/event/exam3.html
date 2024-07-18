@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+    <style>
+        .reverse {
+            background: Black;
+            color: White;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 이벤트를 연결합니다.
+            $('h1').hover(function () {
+                $(this).addClass('reverse');
+            }, function () {
+                $(this).removeClass('reverse');
+            });
+            // 이벤트를 연결합니다.
+            $('#two').click(function () {
+                // 문자열의 앞에 별을 추가합니다.
+                $(this).html(function (index, html) {
+                    return '★' + html;
+                });
+            });
+            $('#two').click(function () {
+                // 문자열의 뒤에 별을 추가합니다.
+                $(this).html(function (index, html) {
+                    return html + '★';
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Header-0</h1>
+    <h1 id='two'>Header-1</h1>
+    <h1>Header-2</h1>
+</body>
+</html>

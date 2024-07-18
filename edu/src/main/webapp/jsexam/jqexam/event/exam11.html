@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+    <style>
+        * {
+            margin:5px; padding:5px;
+            border:3px solid Black;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('a').click(function (event) {
+                $(this).css('background-color', 'yellow');  //이벤트가 발생된 대상객체 currenttarget              
+                event.stopPropagation();//현재 이벤트가 버블링 단계에서 더이상 전파되지 않도록 방지
+                event.preventDefault(); //순히 html에서 표준으로 제공하는 태그의 기본 이벤트 발생을 막는 메서드
+            });
+
+            $('h1').click(function () {
+                $(this).css('background-color', 'Red');
+            });
+        });
+    </script>
+</head>
+<body onclick="alert('ㅋㅋㅋ');">
+    <h1>
+        <a href="http://hanb.co.kr">Hanb Media</a>
+    </h1>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+        * { margin:0px; padding:0px }
+        div{
+            background:#98bf21;
+            height:100px;
+            width:100px;
+            position:absolute;
+        }
+    </style>
+<script src="http://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script> 
+var flag = true;
+$(document).ready(function(){
+	  $("button").click(function(){  
+		 if(flag) {
+		    	$("div").animate({
+		      		left:'+=250px',
+		      		opacity:'0.5',
+		      		height:'150px',
+		      		width:'150px'
+		    	}, 3000)
+		    	flag = false;
+		  } else {
+		        $("div").animate({
+		        	left:'-=250px',
+		            opacity:'0.5',
+		            height:'100px',
+		            width:'100px'
+		         });
+		        flag = true;
+		  }
+	 }); 
+});
+</script> 
+</head>
+ 
+<body>
+<button>Start Animation</button>
+<br/><br/>
+<div></div>
+
+</body>
+</html>
+

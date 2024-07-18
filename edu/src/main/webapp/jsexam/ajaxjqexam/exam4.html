@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XMLHttpRequest</title>
+<script src="http://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+$(document).ready(function () {
+   // Ajax 이벤트 연결   
+   $(document).ajaxComplete(function () {             
+        alert('AjaxComplete');
+   }).ajaxError(function () {               
+       	alert('AjaxError');
+   }).ajaxSend(function () {
+       	alert('AjaxSend');
+   }).ajaxSuccess(function () {
+       	alert('AjaxSuccess');
+   }).ajaxStart(function () {
+      	alert('AjaxStart');
+   });
+   // Ajax 수행
+   $('#wrap').load('content/sample.json');
+});
+</script>
+</head>
+<body> 
+	<h1>AJAX 수행</h1>
+	<hr>
+    <h2 id="wrap"></h2>
+</body>
+</html>

@@ -7,35 +7,38 @@
     body {
         text-align: center;
     }
-   
 </style>
 </head>
 <body>
-<h1 onclick=go()>구구단</h1>
-<button onclick="gugudan(1)">1단</button>
-<button onclick="gugudan(2)">2단</button>
-<button onclick="gugudan(3)">3단</button>
-<button onclick="gugudan(4)">4단</button>
-<button onclick="gugudan(5)">5단</button>
-<button onclick="gugudan(6)">6단</button>
-<button onclick="gugudan(7)">7단</button>
-<button onclick="gugudan(8)">8단</button>
-<button onclick="gugudan(9)">9단</button>
+<h1 id="title">구구단</h1>
+<button data-num="1">1단</button>
+<button data-num="2">2단</button>
+<button data-num="3">3단</button>
+<button data-num="4">4단</button>
+<button data-num="5">5단</button>
+<button data-num="6">6단</button>
+<button data-num="7">7단</button>
+<button data-num="8">8단</button>
+<button data-num="9">9단</button>
 
-<div>   </div>
+<div></div>
 
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
-function gugudan(num){
-    var gugu = document.getElementsByTagName("div")[0];
-    gugu.innerHTML="";
-    for(let i=1; i<=9; i++){
-        gugu.innerHTML += `${num}*${i}=${num*i}<br>`;
-    }
-}
+$(document).ready(function() {
+    $('button').on('click', function() {
+        var num = $(this).data('num');
+        var $gugu = $('div').first();
+        $gugu.empty();
+        for (let i = 1; i <= 9; i++) {
+            $gugu.append(`${num} * ${i} = ${num * i}<br>`);
+        }
+    });
 
-function go() {
-    location.href="https://ko.wikipedia.org/wiki/구구단";
-}
+    $('#title').on('click', function() {
+        window.location.href = "https://ko.wikipedia.org/wiki/구구단";
+    });
+});
 </script>
 </body>
 </html>

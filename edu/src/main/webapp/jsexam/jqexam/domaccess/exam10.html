@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+   	<script src="http://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 변수를 선언합니다.
+            var array = [
+                { name: 'Hanbit Media', link: 'http://www.hanb.co.kr' },
+                { name: 'Naver', link: 'http://www.naver.com' },
+                { name: 'Daum', link: 'http://www.daum.net' },
+                { name: 'w3c', link: 'http://www.w3.org' }
+            ];
+
+            $.each(array, function (index, item) {
+                // 변수를 선언합니다.
+                 var output = '';
+                // 문자열을 만듭니다.
+                output += '<a href="' + item.link + '">';
+                output += ' <h1>' + item.name + '</h1>';
+                output += '</a>';
+                // 집어넣습니다.
+                document.body.innerHTML += output;
+            });
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

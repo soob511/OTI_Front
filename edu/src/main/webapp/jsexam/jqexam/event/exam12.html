@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+    <script src="http://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+           /* $('h1').on('click',  function () {
+                var length = $('h1').length;
+                var targetHTML = $(this).html();
+                $('#wrap').append('<h1>' + length + ' - ' + targetHTML + '</h1>');
+            });  */
+        	 $('body').on('click',   'h1', function () {//나중에 추가되는 h1태그에 핸들러 수행(조상태그 시켜야함) 새로이 추가되는 태그 두번째 아규먼트
+                var length = $('h1').length;
+                var targetHTML = $(this).html();
+                $('#wrap').append('<h1>' + length + ' - ' + targetHTML + '</h1>');
+            });  
+        });
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <h1>Header</h1>
+    </div>
+</body>
+</html>

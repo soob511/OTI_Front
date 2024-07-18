@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>성명과 나이 입력</h1>
+<hr>
+<form method="get" action="http://unico2013.dothome.co.kr/crawling/get.php">
+    <input type="text" name="name" placeholder="성명을 입력하세요" required><br>
+    <input type="number" name="age" placeholder="나이를 입력하세요" required><br>
+    <input type="submit" value=" 확인 후 전송">
+</form>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("form").on("submit", function(e) {
+            const name = $("[name='name']").val();
+            const age = $("[name='age']").val();
+            const content = `입력한 내용입니다. 이름 : ${name}, 나이 : ${age} \n 전송할까요?`;
+
+            if (!confirm(content)) {
+                e.preventDefault(); // 요청을 취소함
+            }
+        });
+    });
+</script>
+</body>
+</html>

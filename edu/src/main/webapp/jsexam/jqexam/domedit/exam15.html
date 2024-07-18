@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="http://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+     /*    $(document).ready(function () {
+            $('h1').html(function (index, html) {
+                return '★' + html + '★';   // 결합연산자..
+            });
+        }); */
+        $(document).ready(function () {
+        	$('h1').click(function () {
+            	$(this).text(function (a, b) {
+            		//alert(a + ":" +b);
+                	return '★' + b + '★';   // 결합연산자..
+            	});
+        	});
+        });
+    </script>
+</head>
+<body>
+    <h1>Header-0</h1>
+    <h1>Header-1</h1>
+    <h1>Header-2</h1>
+</body>
+</html>
+
+
+

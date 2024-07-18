@@ -6,7 +6,7 @@
 		url="http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=4413325600">
 	</c:import>
 	<x:parse varDom="wrss" xml="${weather}"></x:parse>
-
+ 
 	<c:set var="wfKor">
 		<x:out select="$wrss/rss/channel/item/description/body/data/wfKor" />
 	</c:set>

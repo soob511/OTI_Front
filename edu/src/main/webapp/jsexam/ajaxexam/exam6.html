@@ -14,11 +14,11 @@ function getImage() {
 	xhr.responseType = 'blob';
 	xhr.onload = function(e) {
   		if (this.status == 200) {
-    		const blob = e.target.response
+    		const blob = e.target.response//xhr.response
     		const img = document.createElement('img');
     		img.width=100;
     		img.height=100;
-    		img.src = URL.createObjectURL(blob);
+    		img.src = URL.createObjectURL(blob);//blob 실제 이미지 내용 url 만들어줌
     		document.body.appendChild(img);    
   		}
 	};

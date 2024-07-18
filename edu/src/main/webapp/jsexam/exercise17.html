@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>exercise17</title>
+
+</head>
+<body>
+	<h1>이벤트 모델-jQuery</h1>
+	<hr>
+	<button value="red" >빨강색</button>
+	<button value="blue">파랑색</button>
+	<button value = "yellow">노랑색</button>
+	<hr>
+	<h3></h3>
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	<script>
+	$(()=> {
+	    $('button').on({
+	        click: function() {
+	            $('h3').css('color', $(this).val());
+	        }
+	    });
+	});
+	const today = new Date();
+	const month = today.getMonth() + 1; 
+	const date = today.getDate();
+	document.getElementsByTagName("h3")[0].textContent = `오늘은 ${month}월 ${date}일입니다.`;
+	
+	</script>
+</body>
+</html>

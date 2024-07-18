@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+    <script src="http://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 이벤트를 연결합니다.
+            $('h1:first').on("click", function (e) {
+                // 출력합니다.
+                $(e.target).html('ONE CLICK');
+                alert('이벤트가 발생했습니다.');
+                // 이벤트를 제거합니다.
+                //$(e.target).off();
+            });
+            $('h1:last').one('click', function (e) {//한번만 수행
+                // 출력합니다.
+                $(e.target).html('ONE CLICK');
+                alert('이벤트가 발생했습니다.');           
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Header-0</h1>
+    <h1>Header-1</h1>
+    <h1>Header-2</h1>
+    <h1>Header-3</h1>
+    <h1>Header-4</h1>
+    <h1>Header-5</h1>
+</body>
+</html>
