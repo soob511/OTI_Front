@@ -1,0 +1,67 @@
+body {
+    background: black;
+    color: #333;
+    font-family: NanumGothic, 나눔고딕, "Malgun Gothic", "맑은 고딕", sans-serif;
+}
+
+p {
+    width: 60%;
+    min-width: 18.75em; /* 300px : 1em=16px, 0.75em=12px */
+    max-width: 43.75em; /* 700px */
+    margin: 2em auto;
+    background: #fff;
+    padding: 20px;
+}
+
+a {
+    color: #333;
+}
+
+/* 사라지는 박스 */
+#attribute-test {
+    display: none;
+}
+/* 원래는 안보이는 것
+	but, stylesheet2보면 display : block;처리 되기 때문에 볼 수 있음 */
+
+@media only screen and (min-width: 18.75em) /* 300px */ {
+    body {
+        background: yellow;
+    }
+}
+
+@media only screen and (min-width: 30em) /* 480px */ and (max-width: 38.75em) /* 620px */ {
+    body {
+        background: green;
+    }
+}
+
+@media screen and (min-width: 38.75em) /* 620px */ {
+    body {
+        background: red;
+    }
+}
+
+@media screen and (min-width: 50em) /* 800px */ {
+    body {
+        background: blue;
+    }
+}
+
+@media screen and (min-width: 68.75em) /* 1100px */ {
+    body {
+        background: orange;
+    }
+}
+
+@media screen and (min-width: 75em) /* 1200px */ {
+    body {
+        background: navy;
+    }
+}
+
+@media screen and (min-width: 78.152em) /* 1250px */ {
+    body {
+        background-color: pink;
+    }
+}

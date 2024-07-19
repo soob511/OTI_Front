@@ -3,33 +3,44 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+    .highlight {
+        color: yellow;
+    }
+</style>
 </head>
 <body>
-<h1>오늘의 날씨 정보</h1>
-<hr>
-<div id = "output">
-</div>
-<script src="http://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script>
-    $(()=>{
-        $.ajax("ajaxexam/content/weather.jsp",function(data){
-            $('#output').html(data);
-            //$('h1').append($('h1').html()+"-"+);
+    <h1>오늘의 날씨 정보</h1>
+    <hr>
+    <div id="output"></div>
+    <script src="http://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $.ajax({
+            url: "ajaxexam/content/weather.jsp",
+            method: "GET",
+            dataType: "json", 
+            success: function(data) {
+ 
+                $("#output").html(`기준시간 : ${data.time}<br><br>
+                                  기온 : ${data.temp}<br><br>
+                                  <img id="weatherImage" src="../${data.img}" width="300px" height="300px"><br>`);
+                $('h1').html($('h1').html() + " - <span class='highlight'>" + data.wtext + "</span>"); 
+
+               
+                function toggleImageSize() {
+                    $("#weatherImage").animate({
+                        width: "toggle",
+                        height: "toggle"
+                    }, 5000, "swing");
+                }
+
+                toggleImageSize();
+
+                setInterval(toggleImageSize, 5000);
+            }
         });
-       
-        // const xhr = new XMLHttpRequest();
-        // xhr.onload = (event) =>{
-        //     if(xhr.status==200){
-        //         const str = JSON.parse(xhr.responseText);
-        //         const target = document.getElementById("output");
-        //         target.innerHTML +=`기준시간 : ${str.time}<br><br>`;
-        //         target.innerHTML +=`기온 : ${str.temp}<br><br>`;
-        //         target.innerHTML +=`<img src = ../${str.img} width="300px" height = "300px"></img>`
-        //     }
-        // };
-        // xhr.open("GET","ajaxexam/content/weather.jsp",true);
-        // xhr.send();
     });
-</script>
+    </script>
 </body>
 </html>

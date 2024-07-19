@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>웹소켓 Echo 클라이언트</title>
+</head>
+<body>
+<h2>웹소켓 Echo 클라이언트</h2>
+
+<div id="output"></div>
+<script>
+	// 웹소켓 연결과 이벤트 핸들러를 초기화하는 함수
+	function setup() {
+		output = document.getElementById("output");
+		ws = new WebSocket("wss://echo.websocket.org/echo");
+
+		// 연결 열림 이벤트를 감시하다가, 감지되면 sendMessage 함수를 호출
+		ws.onopen = function(e) {
+			log("연결되었습니다");
+			sendMessage("ㅋㅋ 웹소켓님 반가워요!")
+		}
+
+		// 연결 닫힘 이벤트가 감지되면 닫힌 사유를 출력
+		ws.onclose = function(e) {
+			log("연결 닫힘: " + e.reason);
+		}
+
+		// 연결 에러 발생 이벤트가 감지되면 에러 발생 사실을 출력
+		ws.onerror = function(e) {
+			log("에러");
+		}
+
+		// 클라이언트에서 새 메시지 도착 이벤트가 감지되면 메시지를 출력
+		ws.onmessage = function(e) {
+			log("웹소켓 에코서버로 부터 메시지 도착: " + e.data);
+			// 메시지가 하나 도착하면 소켓을 닫음
+			ws.close();
+		}
+	}
+
+	// 웹소켓에 메시지를 전송하는 메서드
+	function sendMessage(msg) {
+		ws.send(msg);
+		log("웹소켓 에코서버에 메시지를 보냈습니다 : "+msg);
+	}
+
+	// 문서에 들어있는 로깅 정보를 표시하는 메서드
+	function log(s) {
+		var p = document.createElement("p");
+		p.style.wordWrap = "break-word";
+		p.textContent = s;
+		output.appendChild(p);
+		// 자바스크립트 콘솔에도 로깅 정보를 출력
+		console.log(s);
+	}
+
+	// 이 예제의 실행을 시작하기 위해 초기화 함수를 호출
+	setup();
+</script>
+</body>
+</html>

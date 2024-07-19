@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<h1>Spread 연산자</h1>
+	<hr>
+	<script src="../util.js"></script>
+	<script>
+		let ary = [10, 20, 30];
+		const [num1, num2, num3] = ary;
+		console.log(num1);
+		console.log(num2);
+		console.log(num3);
+		console.log("=".repeat(10));
+		let [num4, num5] = ary;
+		console.log(num4);
+		console.log(num5);
+		console.log("=".repeat(50));
+		let str = "가나다라마";		
+		for(let ch of str) {
+			console.log(ch);
+		}
+		let ary1 = [...str];
+		console.log(ary1);
+		const [c1, c2] = str;		
+		const [c3, c4, ...c5] = str;
+		console.log(c1);
+		console.log(c2);
+		console.log("=".repeat(50));
+		console.log(c3);
+		console.log(c4);
+		console.log(c5);
+
+		let coffee = {
+			name : "Americano",
+			price : 3000
+		};
+
+		console.log("CASE1");
+		let {name, price} = coffee;
+		console.log(name);		
+		console.log(price);
+
+		console.log("CASE2");
+		let {name: coffeeName, price: coffeePrice} = coffee;		
+		console.log(coffeeName);		
+		console.log(coffeePrice);
+
+		console.log("CASE3");
+		let {name: coffeeName1, caffeine: coffeeCaffeine} = coffee;		
+		console.log(coffeeName1);		
+		console.log(coffeeCaffeine);
+
+		console.log("CASE4");
+		let {name: coffeeName2, caffeine: coffeeCaffeine1 = 500} = coffee;
+		console.log(coffeeName2);
+		console.log(coffeeCaffeine1);
+	</script>
+</body>
+</html>
+
+
+
+
+

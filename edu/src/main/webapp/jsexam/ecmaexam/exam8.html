@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ECMAScript6</title>
+</head>
+<body>
+	<h1>Spread 연산자(1)</h1>
+	<hr>
+	<script>
+		const colorArray = ["red", "green", "blue"];
+		const newColorArray = [...colorArray, "orange"];
+		
+		console.log(colorArray);
+		
+		console.log(newColorArray);
+		
+		const numArray = [2, 3, 4];
+		const newNumArray = [1, ...numArray, 5];
+		
+		console.log(numArray);
+		
+		console.log(newNumArray);
+
+		function myPrint(a, b, c) {
+			console.log(a);
+			console.log(b);
+			console.log(c);
+		}
+		
+		const array = [1, 2, 3];
+		
+		console.log(array);
+		
+		myPrint( ...array);
+		
+		const stringArray = [ ..."xyz"];
+		
+		console.log(stringArray);
+		
+		myPrint( ...stringArray);
+	</script>
+</body>
+</html>

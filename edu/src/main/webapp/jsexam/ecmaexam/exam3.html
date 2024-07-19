@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ECMAScript6</title>
+</head>
+<body>
+	<h1>Map 객체(1)</h1>
+	<hr>
+	<script>
+		let map = new Map([["Apple", "red"], ["Melon", "green"]]);
+		
+		console.log(map.size);
+		console.log(map);
+
+		map = new Map();
+		
+		map.set("Apple", "red");
+		map.set("Melon", "green");
+		
+		console.log(map.get("Apple"));
+		
+		console.log(map.get("Melon"));
+		console.log(map.has("Apple"));
+		
+		console.log(map.has("Melon"));
+		map.delete("Apple")
+		
+		console.log(map.has("Apple"));
+	</script>
+</body>
+</html>

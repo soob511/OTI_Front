@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ECMAScript6</title>
+</head>
+<body>
+	<h1>Spread 연산자(2)</h1>
+	<hr>
+	<script>
+		const array1 = ["a", "b", "c"];
+		array1.push( ...["d", "e"]);//spread로 안넣으면 4번째 배열에 배열으로 들어가게됨	
+		console.log(array1);
+		
+		const array2 = [10, 20, 60, 50, 30];		
+		console.log(Math.max( ...array2));
+		console.log(Math.max(array2));//NAN
+	</script>
+</body>
+</html>

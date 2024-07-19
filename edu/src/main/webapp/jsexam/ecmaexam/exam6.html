@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ECMAScript6</title>
+</head>
+<body>
+	<h1>Rest 연산자와 기본값 매개변수</h1>
+	<hr>
+	<script>
+		function add(a, b, ...args) {
+			console.log(a, b, args);
+			
+			let sum = a + b;
+			
+			for(let i = 0; i < args.length; i++) {
+				sum += args[i];
+			}
+			
+			return sum;
+		}
+		
+		let sum = add(1, 2, 3, 4, 5);	
+		
+		console.log(sum);
+
+		function add2(...args) {
+			console.log(args);
+			
+			let sum = 0;
+			
+			for(let i = 0; i < args.length; i++) {
+				sum += args[i];
+			}
+			
+			return sum;
+		}
+		
+		sum = add2(1, 2, 3, 4, 5);
+		
+		console.log(sum);
+
+
+		function add(a, b = 10) {//명시적 함수 정의가 여러개이면 마지막함수가 호출됨
+			console.log("a = " + a);
+			
+			console.log("b = " + b);
+			
+			return a + b;
+		}
+		
+		sum = add(1);
+		
+		console.log(sum);
+	</script>
+</body>
+</html>

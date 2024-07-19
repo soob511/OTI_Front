@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ECMAScript6</title>
+</head>
+<body>
+    <h1>화살표 함수</h1>
+    <hr>
+    <ul>
+    <li>메서드로 사용불가</li>
+    <li>화살표 함수는 생성자로 사용할 수 없음</li>        
+    </ul>
+	<pre>
+		() => expression
+		
+		param => expression
+		
+		(param) => expression
+		
+		(param1, paramN) => expression
+
+		() => {
+  			statements
+		}
+		param => {
+  			statements
+		}
+		(param1, paramN) => {
+  			statements
+		}    
+    </pre>
+
+	<script>	    
+		const f = function(a, b) { return a + b};
+		
+		console.log(f(100, 5));
+		
+		const af = (a, b) => { return a + b};
+		
+		console.log(af(100, 5));
+	/* 	
+		const at = (a,b)=>a+b;
+		console.log(at(100,5)); */
+	</script>
+</body>
+</html>

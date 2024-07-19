@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>반응형 웹디자인(RWD)</title>
+    <!-- 모바일 스크린에 맞춰 너비와 스케일을 설정함.(iOS전용, Android 알아서 적절히 렌더링함.) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <style type="text/css">
+        body {
+            background: black;
+            color: #333;
+            font-family: NanumGothic, 나 눔 고 딕, "Malgun Gothic", "맑은 고딕", sans-serif;
+        }
+        h1:after {
+            color: black;
+            display: block;
+        }
+        @media all and (max-width: 320px) {
+            body {
+                background-color: red;
+            }
+            h1 {
+                color: white;
+            }
+            h1:after {
+                content: "max-width: 320px";
+            }
+        }
+
+        @media all and (min-width: 321px) and (max-width: 768px) {
+            body {
+                background-color: blue;
+            }
+            h1 {
+                color: white;
+            }
+            h1:after {
+                content: "min-width: 321px max-width: 768px";
+            }
+        }
+
+        @media all and (min-width: 769px) {
+            body {
+                background-color: orange;
+            }
+            h1 {
+                color: white;
+            }
+            h1:after {
+                content: "min-width: 769px";
+            }
+        }
+    </style>
+</head>
+<body>
+<h1>반응형 웹디자인</h1>
+</body>
+</html>
