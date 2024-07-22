@@ -26,10 +26,10 @@
 	<div id="result"></div>
 	<script>
 		function requestAjax() {
-			const xhr = new XMLHttpRequest();
-			xhr.onload = function () {
+			const xhr = new XMLHttpRequest();//객체생성
+			xhr.onload = function () {//요청이 완료되었을 떄 실행될 함수를 정의
 				const result = document.getElementById("result");
-				const jsonObj = JSON.parse(xhr.responseText);
+				const jsonObj = JSON.parse(xhr.responseText);//응답 텍스트를 json객체로 파싱
 				result.innerHTML += "<h2>"+jsonObj.LampScpgmtb.RESULT.MESSAGE+"</H2>";	
 				const target = jsonObj.LampScpgmtb.row;				
 				for(let i in target) {					
